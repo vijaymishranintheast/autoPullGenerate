@@ -17,7 +17,7 @@ jobs:
         id: demo-1
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: auto-pr-branch1
+          branch: auto-pr-branch2
           base: main
           title: demo for auto pr1
           committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL
@@ -26,4 +26,4 @@ jobs:
           body: This is to show automatic PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
           reviewer: " ryanw@ninthlabs.ai "
-          delete-branch: false
+          delete-branch: true
