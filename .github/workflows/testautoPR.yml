@@ -2,7 +2,7 @@ name: Demo to create automatic Pull request
 on:
   push:
     branches:
-      - main
+      - " * "
 jobs:
   updateAuthor:
     runs-on: ubuntu-latest
