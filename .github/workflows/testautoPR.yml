@@ -20,12 +20,29 @@ jobs:
         id: demo
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: TestPR
+          branch: TestPR1
           base: main
           title: demo for auto pr
           
           body: This is to show automatic PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
           reviewers: "vijay.mishra@nintheast.com"
+
+      - name: Get the sha element of the base and head branches
+        run: |
+          BASE_SHA=$(git rev-parse ${{ github.event.pull_request.base.sha }})
+          HEAD_SHA=$(git rev-parse ${{ github.event.pull_request.head.sha }})
+
+      - name: Compare the sha elements
+        run: |
+          git diff --name-only $BASE_SHA $HEAD_SHA
+
+      - name: Use git diff to create the diff
+        run: |
+          git diff $BASE_SHA $HEAD_SHA > diff.txt
+
+      - name: Redirect the output of git diff to a file
+        run: |
+          cat diff.txt
           
           delete-branch: true
