@@ -1,0 +1,30 @@
+name: Git Diff
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get the sha element of the base and head branches
+        run: |
+          BASE_SHA=$(git rev-parse ${{ github.event.pull_request.base.sha }})
+          HEAD_SHA=$(git rev-parse ${{ github.event.pull_request.head.sha }})
+
+      - name: Compare the sha elements
+        run: |
+          git diff --name-only $BASE_SHA $HEAD_SHA
+
+      - name: Use git diff to create the diff
+        run: |
+          git diff $BASE_SHA $HEAD_SHA > diff.txt
+
+      - name: Redirect the output of git diff to a file
+        run: |
+          cat diff.txt
