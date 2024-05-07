@@ -20,13 +20,14 @@ jobs:
         id: demo
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: TestPR1
+          branch: TestPR12
           base: main
           title: demo for auto pr
           
           body: This is to show automatic PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
           reviewers: "vijay.mishra@nintheast.com"
+          delete-branch: true
 
       - name: Get the sha element of the base and head branches
         run: |
@@ -45,4 +46,4 @@ jobs:
         run: |
           cat diff.txt
           
-          delete-branch: true
+         
