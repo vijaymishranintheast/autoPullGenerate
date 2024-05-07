@@ -2,7 +2,7 @@ name: Demo to create automatic Pull request
 on:
   push:
     branches:
-      - test
+      - main
     paths:
       - '**.txt'
 jobs:
