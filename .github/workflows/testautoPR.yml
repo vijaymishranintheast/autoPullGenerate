@@ -9,6 +9,9 @@ jobs:
   updateAuthor:
     runs-on: ubuntu-latest
     steps:
+      - name: checking out code
+        uses: actions/checkout@v2
+    
      
       - name: Raise PR 
         id: demo-1
