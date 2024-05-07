@@ -10,8 +10,7 @@ jobs:
       - name: checking out code
         uses: actions/checkout@v2
 
-      - uses: rlespinasse/git-commit-data-action@v1.x  # (Optional) Get commit author/email for informative pull request details
-        id: commitData
+     
       - name: extract git commit data
         uses: rlespinasse/git-commit-data-action@v1.x
       
