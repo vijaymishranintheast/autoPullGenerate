@@ -2,7 +2,9 @@ name: Demo to create automatic Pull request
 on:
   push:
     branches:
-      - " * "
+      - test
+    paths:
+      - '**.txt'
 jobs:
   updateAuthor:
     runs-on: ubuntu-latest
