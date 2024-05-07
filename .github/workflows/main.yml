@@ -3,7 +3,7 @@ name: Git Diff
 on:
   pull_request:
     branches:
-      - main
+      - TestPR
 
 jobs:
   build:
